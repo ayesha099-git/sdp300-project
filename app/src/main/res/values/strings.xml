@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MediSync Healthcare Application</string>
+
+    //Headings
+    <string name="heading_one">Hassle-Free Doctor Appointments</string>
+    <string name="heading_two">Affordable Lab Test Rates</string>
+    <string name="heading_three">Daily Wellness Insights</string>
+    <string name="heading_fourth">Smart Hydration Notifications</string>
+
+    //Description
+    <string name="desc_one">Find the right doctor and book appointments effortlessly within shortest possible time.</string>
+    <string name="desc_two">Access essential lab tests at the most affordable prices, without hidden charges.</string>
+    <string name="desc_three">Get personalized health tips every day to improve your lifestyle and well-being.</string>
+    <string name="desc_fourth">Get timely alerts to help you stay hydrated throughout the day.</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background">#F0F4F3</color>
+    <color name="buttontext">#50C2C9</color>
+
+    <color name="inactive">#C4C4C4</color>
+    <color name="active">#50C2C9</color>
+
+    <color name="teal_200">#03DAC5</color>
+
+    <color name="colorRed">#FF0000</color>
+    <color name="lightRed">#FFCDD2</color>
+    <color name="darkRed">#B71C1C</color>
+    <color name="pastelRed">#FFB3BA</color>
+    <color name="crimson">#DC143C</color>
+    <color name="firebrick">#B22222</color>
+
+    <color name="purpleDark">#6A0DAD</color>
+    <color name="purpleLight">#D8BFD8</color>
+    <color name="lavender">#E6E6FA</color>
+    <color name="violet">#EE82EE</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="deepPurple">#4B0082</color>
+</resources>
