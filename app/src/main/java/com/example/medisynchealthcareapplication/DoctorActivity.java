@@ -34,7 +34,7 @@ public class DoctorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(DoctorActivity.this,DoctorDetailsActivity.class);
-                it.putExtra("title","Dietician");
+                it.putExtra("title","Dieticians");
                 startActivity(it);
             }
         });

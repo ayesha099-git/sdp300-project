@@ -23,6 +23,13 @@
         android:textColor="#FFF000"
         android:textSize="14sp" />
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_height="wrap_content">
+
+
     <TextView
         android:id="@+id/line_c"
         android:layout_width="0dp"
@@ -32,4 +39,24 @@
         android:textColor="#ffff66"
         android:textSize="12sp" />
 
+        <TextView
+            android:id="@+id/line_d"
+            android:layout_width="0dp"
+            android:layout_weight="0.20"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#ffff66"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/line_e"
+            android:layout_width="0dp"
+            android:layout_weight="0.20"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#ffff66"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
 </LinearLayout>
