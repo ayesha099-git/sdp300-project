@@ -105,6 +105,6 @@ SimpleAdapter sa;
             item.put("line5", "Cons Fees:" +doctor_details[i][4]+"/-");
             list.add(item);
         }
-
+        sa = new SimpleAdapter(this,)
     }
 }
