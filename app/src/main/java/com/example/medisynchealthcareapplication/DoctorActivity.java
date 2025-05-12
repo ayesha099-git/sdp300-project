@@ -19,6 +19,13 @@ public class DoctorActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_doctor);
 
+        CardView cb=findViewById(R.id.cardBack);
+        cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DoctorActivity.this,DashboardActivity.class));
+            }
+        });
         CardView familyphysician = findViewById(R.id.cardFamily_physicians);
         familyphysician.setOnClickListener(new View.OnClickListener() {
             @Override
