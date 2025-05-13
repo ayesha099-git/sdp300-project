@@ -46,6 +46,34 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        CardView lt=findViewById(R.id.cardLabTest);
+        lt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(DashboardActivity.this,LabtestActivity.class));
+            }
+        });
+
+        CardView wr=findViewById(R.id.cardWaterReminder);
+        wr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(DashboardActivity.this,WaterReminderActivity.class));
+            }
+        });
+
+
+        CardView diabetic=findViewById(R.id.cardDiabetis);
+        diabetic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(DashboardActivity.this,diabeticActivity.class));
+            }
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

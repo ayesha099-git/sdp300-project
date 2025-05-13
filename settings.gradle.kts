@@ -16,9 +16,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // ✅ Add JitPack for MPAndroidChart
+        maven { url = uri("https://jitpack.io") }
+
     }
 }
 
 rootProject.name = "MediSync Healthcare Application"
 include(":app")
- 
