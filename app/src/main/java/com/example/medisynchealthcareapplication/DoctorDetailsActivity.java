@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -11,14 +12,12 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DoctorDetailsActivity extends AppCompatActivity {
+
     private String[][] doctor_details1 = {
             {"Doctor Name : Dr. Mahmud Hasan", "Hospital Address : United Hospital, Dhaka", "Exp : 10yrs", "Mobile No: 01711223344", "8001"},
             {"Doctor Name : Dr. Farhana Ahmed", "Hospital Address : Evercare Hospital, Dhaka", "Exp : 12yrs", "Mobile No: 01811223344", "8002"},
@@ -59,13 +58,13 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             {"Doctor Name : Dr. Jalal Uddin", "Hospital Address : Labaid Hospital, Sylhet", "Exp : 5yrs", "Mobile No: 01633445566", "8005"}
     };
 
-
     TextView tv;
     Button btn;
-String[][] doctor_details = {};
-HashMap<String,String> item;
-ArrayList list;
-SimpleAdapter sa;
+    String[][] doctor_details = {};
+    ArrayList<HashMap<String, String>> list;
+    HashMap<String, String> item;
+    SimpleAdapter sa;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +74,8 @@ SimpleAdapter sa;
 
         tv = findViewById(R.id.textViewDDTitle);
         btn = findViewById(R.id.buttonDDBack);
+        ListView lst = findViewById(R.id.listViewDD);
+
         Intent it = getIntent();
         String title = it.getStringExtra("title");
         tv.setText(title);
@@ -90,28 +91,43 @@ SimpleAdapter sa;
         else
             doctor_details = doctor_details5;
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DoctorDetailsActivity.this, DoctorActivity.class));
-            }
+        btn.setOnClickListener(view -> {
+            startActivity(new Intent(DoctorDetailsActivity.this, DoctorActivity.class));
         });
 
-        list = new ArrayList();
-        for (int i = 0; i < doctor_details.length; i++) {
-            item = new HashMap<String, String>();
-            item.put("line1", doctor_details[i][0]);
-            item.put("line2", doctor_details[i][1]);
-            item.put("line3", doctor_details[i][2]);
-            item.put("line4", doctor_details[i][3]);
-            item.put("line5", "Cons Fees:" + doctor_details[i][4] + "/-");
+        list = new ArrayList<>();
+        for (String[] doctor_detail : doctor_details) {
+            item = new HashMap<>();
+            item.put("line1", doctor_detail[0]);
+            item.put("line2", doctor_detail[1]);
+            item.put("line3", doctor_detail[2]);
+            item.put("line4", doctor_detail[3]);
+            item.put("line5", "Cons Fees: " + doctor_detail[4] + "/-");
             list.add(item);
         }
-        sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4", "line5"},
-                new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e}
-        );
-        ListView lst = findViewById(R.id.listViewDD);
+
+        sa = new SimpleAdapter(this, list, R.layout.multi_lines,
+                new String[]{"line1", "line2", "line3", "line4", "line5"},
+                new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e}) {
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                Button btn = view.findViewById(R.id.btnSeeDetails);
+                btn.setOnClickListener(v -> {
+                    HashMap<String, String> selected = (HashMap<String, String>) getItem(position);
+                    Intent intent = new Intent(DoctorDetailsActivity.this, DoctorFullDetailsActivity.class);
+                    intent.putExtra("line1", selected.get("line1"));
+                    intent.putExtra("line2", selected.get("line2"));
+                    intent.putExtra("line3", selected.get("line3"));
+                    intent.putExtra("line4", selected.get("line4"));
+                    intent.putExtra("line5", selected.get("line5"));
+                    startActivity(intent);
+                });
+                return view;
+            }
+        };
+
         lst.setAdapter(sa);
     }
-
-    }
+}
