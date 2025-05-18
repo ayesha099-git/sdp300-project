@@ -1,22 +1,17 @@
 package com.example.medisynchealthcareapplication;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.GridLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class LabtestActivity extends AppCompatActivity {
 
-    Button bBack;
-    GridLayout labTestGrid;
+    private Button bBack;
+    private RecyclerView labTestRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +19,9 @@ public class LabtestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_labtest);
 
         bBack = findViewById(R.id.buttonDDBack);
-        bBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LabtestActivity.this,DashboardActivity.class));
-            }
-        });
+        labTestRecyclerView = findViewById(R.id.labTestRecyclerView);
 
-        labTestGrid = findViewById(R.id.labTestGrid);
+        bBack.setOnClickListener(v -> startActivity(new Intent(LabtestActivity.this, DashboardActivity.class)));
 
         String[] labTests = {
                 "CBC Test", "Dengue Test", "Ultrasonography", "Blood Sugar Test",
@@ -40,24 +30,8 @@ public class LabtestActivity extends AppCompatActivity {
                 "COVID-19 PCR", "Cholesterol Test", "Hemoglobin Test"
         };
 
-        for (String test : labTests) {
-            TextView tile = new TextView(this);
-            tile.setText(test);
-            tile.setPadding(24, 24, 24, 24);
-            tile.setTextSize(16);
-            tile.setTypeface(Typeface.DEFAULT_BOLD);
-            tile.setTextColor(ContextCompat.getColor(this, R.color.deepPurple));
-
-            tile.setGravity(Gravity.CENTER);
-
-            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = 0;
-            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-            params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
-            params.setMargins(16, 16, 16, 16);
-            tile.setLayoutParams(params);
-
-            labTestGrid.addView(tile);
-        }
+        // Set layout manager and adapter for RecyclerView
+        labTestRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        labTestRecyclerView.setAdapter(new LabTestAdapter(this, labTests));
     }
 }

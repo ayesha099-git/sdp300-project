@@ -11,6 +11,7 @@
 
     <color name="teal_200">#03DAC5</color>
 
+    <color name="orange">#FFA500</color>
     <color name="colorRed">#FF0000</color>
     <color name="lightRed">#FFCDD2</color>
     <color name="darkRed">#B71C1C</color>

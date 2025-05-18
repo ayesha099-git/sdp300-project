@@ -49,7 +49,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password=edPassword.getText().toString();
                 String confirm=edConfirm.getText().toString();
 
-                Database db = new Database(getApplicationContext(), "MediSync", null, 1);
+                Database db = new Database(getApplicationContext());
 
                 if(username.length()==0|| email.length()==0 || password.length()==0 || confirm.length()==0){
                     Toast.makeText(getApplicationContext(), "Please fill all the field", Toast.LENGTH_SHORT).show();

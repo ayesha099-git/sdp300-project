@@ -46,6 +46,16 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        CardView htips=findViewById(R.id.cardHealthTips);
+        htips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(DashboardActivity.this,HealthTipsActivity.class));
+            }
+        });
+
+
         CardView lt=findViewById(R.id.cardLabTest);
         lt.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username = edUsername.getText().toString();
                 String password = edPassword.getText().toString();
 
-                Database db = new Database(getApplicationContext(), "MediSync", null, 1);
+                Database db = new Database(getApplicationContext());
 
                 if (username.length() == 0 || password.length() == 0) {
                     Toast.makeText(getApplicationContext(), "Please fill all the field", Toast.LENGTH_SHORT).show();

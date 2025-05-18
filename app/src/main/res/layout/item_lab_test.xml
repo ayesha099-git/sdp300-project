@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/textTestName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/purpleDark"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/buttonSeePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See Price Details"
+        android:backgroundTint="@color/active"
+        android:textColor="@color/white"
+        android:padding="8dp" />
+</LinearLayout>
